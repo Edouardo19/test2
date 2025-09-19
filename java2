@@ -1,0 +1,8 @@
+// Example using a JSP page or a server-side framework
+String name = request.getParameter("name");
+
+// BAD: Directly printing un-sanitized user input
+out.println("<h1>Hello, " + name + "</h1>");
+
+// Attacker input for `name`: <script>alert('xss')</script>
+// Browser renders: <h1>Hello, <script>alert('xss')</script></h1>
